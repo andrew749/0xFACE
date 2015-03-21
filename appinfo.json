@@ -1,0 +1,26 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "andrewcod749@gmail.com",
+    "longName": "hexface",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "fonts/CoveredByYourGrace.ttf",
+                "name": "FONTMAIN_44",
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "2",
+    "shortName": "hexface",
+    "uuid": "3c0eb503-c587-4575-9d36-6f0fbf5a33f0",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
