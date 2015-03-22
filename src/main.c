@@ -2,12 +2,11 @@
 
 Window *my_window;
 TextLayer *text_layer;
-int velocity_x=1, velocity_y=1;
 
 void gett(char *out,int state){
   time_t temp = time(NULL); 
   struct tm *t = localtime(&temp);
-      char * ti=malloc(sizeof(char)*2);
+  char ti[2];
   ti[0]='0';
   ti[1]='0';
   int n,r[2],i,d=0,e=1;
@@ -43,10 +42,10 @@ void gett(char *out,int state){
     out[3]=ti[1];
     out[4]=ti[0];
   }
-  
 }
+
 char * convertToHexTime(struct tm * currtime){
-    char * time=malloc(sizeof(char)*5);
+    char* time=malloc(sizeof(char)*5);
     for(int i=0;i<5;i++){time[i]=0;}
   //just a placeholder will have first digit
     gett(time,0);
@@ -55,25 +54,25 @@ char * convertToHexTime(struct tm * currtime){
   return time;
 }
 static void handler(struct tm *tick_time, TimeUnits units_changed) {
-    text_layer_set_text(text_layer, convertToHexTime(tick_time));
-  text_layer_set
+    char* time=convertToHexTime(tick_time);
+    text_layer_set_text(text_layer, time);
+    free(time);
 }
 //does first two digit converstion
 
 void handle_init(void) {
   my_window = window_create();
- char initial[5]="00:00";
-  text_layer = text_layer_create(GRect(0, 0, 144, 80));
+  char initial[5]="00:00";
+  text_layer = text_layer_create(GRect(0, 50, 144, 80));
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer,GColorBlack);
   text_layer_set_text_alignment(text_layer, GTextAlignmentCenter);
   text_layer_set_text(text_layer,initial);
   text_layer_set_font(text_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONTMAIN_44)));
   layer_add_child(window_get_root_layer(my_window), text_layer_get_layer(text_layer));
-  tick_timer_service_subscribe(SECOND_UNIT, handler);
+  tick_timer_service_subscribe(MINUTE_UNIT, handler);
   window_stack_push(my_window, true);
 }
-
 
 void handle_deinit(void) {
   text_layer_destroy(text_layer);
