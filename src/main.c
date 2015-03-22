@@ -68,7 +68,7 @@ void handle_init(void) {
   text_layer_set_text_color(text_layer,GColorBlack);
   text_layer_set_text_alignment(text_layer, GTextAlignmentCenter);
   text_layer_set_text(text_layer,initial);
-  text_layer_set_font(text_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONTMAIN_44)));
+  text_layer_set_font(text_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_ROBOTO_55)));
   layer_add_child(window_get_root_layer(my_window), text_layer_get_layer(text_layer));
   tick_timer_service_subscribe(MINUTE_UNIT, handler);
   window_stack_push(my_window, true);

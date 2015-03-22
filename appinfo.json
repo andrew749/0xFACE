@@ -9,8 +9,8 @@
     "resources": {
         "media": [
             {
-                "file": "fonts/CoveredByYourGrace.ttf",
-                "name": "FONTMAIN_44",
+                "file": "fonts/Roboto-Thin.ttf",
+                "name": "ROBOTO_55",
                 "type": "font"
             }
         ]
